@@ -2,10 +2,12 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "s-maxage=60");
 
-  const symbols = [
+  const stockSymbols = [
     "AMZN","GOOGL","CSU.TO","NVDA","MA","MSFT",
     "META","LLY","SPGI","FICO","V","ZTS","WKL.AS","FBTC.MI"
   ];
+
+  const fxSymbols = ["EURUSD=X","CADUSD=X"];
 
   const headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -44,24 +46,40 @@ export default async function handler(req, res) {
   };
 
   try {
-    const results = await Promise.all(symbols.map(fetchSymbol));
-    const data = {};
-    results.forEach(r => { if (r) data[r.symbol] = r; });
+    const allSymbols = [...stockSymbols, ...fxSymbols];
+    const results = await Promise.all(allSymbols.map(fetchSymbol));
 
-    if (Object.keys(data).length > 0) {
-      return res.status(200).json({
-        success: true, data,
-        timestamp: new Date().toISOString()
-      });
-    }
-    res.status(200).json({
-      success: false, data: {},
+    const data = {};
+    const fx = {};
+
+    results.forEach(r => {
+      if (!r) return;
+      if (r.symbol === "EURUSD=X") {
+        fx.EURUSD = r.price;
+      } else if (r.symbol === "CADUSD=X") {
+        fx.CADUSD = r.price;
+      } else {
+        data[r.symbol] = r;
+      }
+    });
+
+    if (!fx.EURUSD) fx.EURUSD = 1.13;
+    if (!fx.CADUSD) fx.CADUSD = 0.73;
+
+    return res.status(200).json({
+      success: true,
+      data,
+      fx,
       timestamp: new Date().toISOString()
     });
+
   } catch (e) {
-    res.status(200).json({
-      success: false, error: e.message,
-      data: {}, timestamp: new Date().toISOString()
+    return res.status(200).json({
+      success: false,
+      error: e.message,
+      data: {},
+      fx: { EURUSD: 1.13, CADUSD: 0.73 },
+      timestamp: new Date().toISOString()
     });
   }
 }

@@ -31,8 +31,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:var(--bg1)}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-
-/* LIVE INDICATOR */
 .live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite;display:inline-block;flex-shrink:0}
 .live-dot.offline{background:var(--red2);animation:none}
 .live-dot.loading{background:var(--amber);animation:spin 1s linear infinite}
@@ -40,8 +38,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .blink{animation:blink 1.2s step-end infinite}
-
-/* TICKER TAPE */
 .ticker-wrap{background:var(--bg1);border-bottom:1px solid var(--border);overflow:hidden;height:28px;display:flex;align-items:center}
 .ticker-label{padding:0 10px;font-size:10px;font-weight:700;color:var(--green);letter-spacing:2px;white-space:nowrap;border-right:1px solid var(--border);height:100%;display:flex;align-items:center;gap:6px;flex-shrink:0}
 .ticker-scroll{overflow:hidden;flex:1}
@@ -52,8 +48,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .t-sym{color:var(--green);font-weight:700}
 .t-prc{color:var(--text)}
 .up{color:var(--green2)}.dn{color:var(--red2)}
-
-/* HEADER */
 .header{background:var(--bg1);border-bottom:1px solid var(--border);padding:0 14px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:100}
 .hdr-l{display:flex;align-items:center;gap:10px}
 .hdr-sq{width:30px;height:30px;background:var(--green);display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;font-size:15px;flex-shrink:0}
@@ -64,10 +58,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .btn:hover{background:var(--bg3);color:var(--green);border-color:var(--green)}
 .btn.active{background:var(--green-dim);color:var(--green);border-color:var(--green)}
 .clock{font-size:12px;font-weight:700;color:var(--green);font-family:var(--mono)}
-#live-status{display:flex;align-items:center;gap:5px;font-size:9px;color:var(--text3)}
-.sep{width:1px;height:24px;background:var(--border);flex-shrink:0}
-
-/* METRICS BAR */
 .mbar{background:var(--bg1);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(2,1fr)}
 @media(min-width:480px){.mbar{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:768px){.mbar{grid-template-columns:repeat(5,1fr)}}
@@ -80,58 +70,44 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 @media(min-width:768px){.mc-val{font-size:24px}}
 .mc-sub{font-size:10px;color:var(--text2)}
 .mc-live{font-size:9px;color:var(--text3);margin-top:2px;display:flex;align-items:center;gap:4px}
-
-/* TABS */
 .tabs{background:var(--bg1);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{padding:12px 16px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text3);background:transparent;border:none;cursor:pointer;font-family:var(--mono);white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s}
 .tab:hover{color:var(--text);background:var(--bg2)}
 .tab.on{color:var(--green);border-bottom-color:var(--green);background:var(--green-dim)}
-
-/* MAIN */
 .main{padding:12px;max-width:1600px;margin:0 auto}
 @media(min-width:768px){.main{padding:16px 20px}}
 .sec{display:none;animation:fadeUp .25s ease}
 .sec.on{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-
-/* CARD */
 .card{background:var(--bg1);border:1px solid var(--border);margin-bottom:12px}
 .card-h{padding:9px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:700;color:var(--text2);letter-spacing:2px;text-transform:uppercase}
 .card-b{padding:14px}
-
-/* HOLDINGS */
 .htable{width:100%;border-collapse:collapse}
 .htable th{padding:7px 10px;text-align:left;font-size:9px;font-weight:700;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid var(--border);white-space:nowrap}
 .htable th.r{text-align:right}
 .htable td{padding:0;border-bottom:1px solid rgba(255,255,255,0.03)}
-.hr-main{display:grid;grid-template-columns:36px minmax(0,1fr) 88px;cursor:pointer;padding:10px;align-items:center;gap:8px;transition:background .1s}
-@media(min-width:480px){.hr-main{grid-template-columns:36px minmax(0,1fr) 88px 72px 72px}}
-@media(min-width:768px){.hr-main{grid-template-columns:40px 108px minmax(0,1fr) 92px 78px 78px 72px 62px}}
+.hr-main{display:grid;grid-template-columns:36px minmax(0,1fr) 110px;cursor:pointer;padding:10px;align-items:center;gap:8px;transition:background .1s}
+@media(min-width:480px){.hr-main{grid-template-columns:36px minmax(0,1fr) 110px 72px 72px}}
+@media(min-width:768px){.hr-main{grid-template-columns:40px 108px minmax(0,1fr) 110px 78px 78px 72px 62px}}
 .hr-main:hover{background:var(--bg2)}
 .hr-expand{display:none;background:var(--bg0);border-top:1px solid var(--border);padding:14px;animation:fadeUp .2s ease}
 .hr.open .hr-expand{display:block}
 .sm{display:none}@media(min-width:480px){.sm{display:block}}
 .md{display:none}@media(min-width:768px){.md{display:block}}
-/* Orb */
 .orb{position:relative;flex-shrink:0}
 .orb svg{transform:rotate(-90deg);display:block}
 .orb-n{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;font-family:var(--mono)}
-/* Ticker */
 .ht{font-size:14px;font-weight:800;letter-spacing:.5px;line-height:1}
 .hs{font-size:9px;color:var(--text3);letter-spacing:1px;margin-top:2px}
-/* Value */
 .hv{text-align:right}
 .hvm{font-size:13px;font-weight:700;font-family:var(--sans)}
-.hvs{font-size:10px;color:var(--text2);margin-top:1px}
-/* Change */
+.hvs{font-size:11px;color:var(--green2);margin-top:2px;font-family:var(--sans);font-weight:700}
 .pct{text-align:right;font-size:13px;font-weight:700;font-family:var(--sans)}
-/* Live price flash */
 .price-up{animation:flashUp .6s ease}
 .price-dn{animation:flashDn .6s ease}
 @keyframes flashUp{0%,100%{background:transparent}30%{background:rgba(74,222,128,0.15)}}
 @keyframes flashDn{0%,100%{background:transparent}30%{background:rgba(255,68,68,0.15)}}
-/* Badge */
 .badge{display:inline-block;font-size:9px;padding:2px 6px;font-weight:700;letter-spacing:.5px;border:1px solid;font-family:var(--mono)}
 .b-alta{background:rgba(74,222,128,0.1);color:var(--green2);border-color:rgba(74,222,128,0.3)}
 .b-media{background:rgba(167,139,250,0.1);color:var(--purple);border-color:rgba(167,139,250,0.3)}
@@ -140,7 +116,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .b-dec{background:var(--amber-dim);color:var(--amber);border-color:var(--amber)}
 .b-new{background:rgba(74,222,128,0.12);color:var(--green2);border-color:var(--green3);animation:blink 2s infinite}
 .b-watch{background:rgba(255,68,68,0.08);color:var(--red2);border-color:rgba(255,68,68,0.3)}
-/* Expand */
 .exp-g{display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:600px){.exp-g{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.exp-g{grid-template-columns:1.2fr 1fr 1fr}}
@@ -154,8 +129,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .moat-l{display:flex;flex-wrap:wrap;gap:5px}
 .moat-i{font-size:10px;padding:3px 8px;border:1px solid;font-weight:500;font-family:var(--mono)}
 .kpi{margin-top:12px;padding:8px 10px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.2);font-size:11px;color:var(--amber)}
-
-/* SECTORS */
 .sg{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px}
 @media(min-width:600px){.sg{grid-template-columns:1fr 1fr}}
 .sc2{background:var(--bg1);border:1px solid var(--border);padding:16px 18px}
@@ -171,8 +144,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .sc2-tgt{font-size:11px;color:var(--text3)}
 .sc2-ticks{display:flex;flex-wrap:wrap;gap:4px}
 .sc2-tick{font-size:9px;padding:2px 6px;font-weight:700;letter-spacing:.5px}
-
-/* SCORE */
 .sl-r{display:flex;align-items:center;gap:8px;padding:6px 2px;border-bottom:1px solid rgba(255,255,255,0.03)}
 .sl-rk{font-size:9px;color:var(--text3);width:16px;text-align:right;flex-shrink:0}
 .sl-tk{font-size:12px;font-weight:800;color:var(--text);width:48px;flex-shrink:0;font-family:var(--mono)}
@@ -188,8 +159,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .bc-l{font-size:7px;color:var(--text3);transform:rotate(-40deg);transform-origin:top center;white-space:nowrap;margin-top:5px}
 .s2c{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:768px){.s2c{grid-template-columns:1fr 300px}}
-
-/* PLAN */
 .p2c{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:768px){.p2c{grid-template-columns:1fr 1fr}}
 .ac{padding:14px 16px;border:1px solid;position:relative;overflow:hidden;margin-bottom:9px;transition:transform .1s}
@@ -209,8 +178,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .kpi-t{font-size:13px;font-weight:800;color:var(--text);font-family:var(--mono)}
 .kpi-k{font-size:10px;color:var(--text3);margin-top:1px}
 .kpi-v{font-size:11px;font-weight:700;font-family:var(--mono)}
-
-/* SIMULADOR */
 .sim-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .sim-tk{font-size:11px;font-weight:800;width:62px;flex-shrink:0;font-family:var(--mono)}
 .sim-sl{flex:1;-webkit-appearance:none;height:3px;background:var(--bg0);border:1px solid var(--border);outline:none;cursor:pointer}
@@ -226,16 +193,12 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .sim-warn.on{display:block}
 .sim-2g{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:768px){.sim-2g{grid-template-columns:1fr 1fr}}
-
-/* BOTTOM NAV MOBILE */
 .bnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg1);border-top:1px solid var(--border);z-index:200}
 @media(max-width:640px){.bnav{display:flex}}
 .bnav-btn{flex:1;padding:9px 4px;text-align:center;font-size:8px;color:var(--text3);background:none;border:none;cursor:pointer;font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase;transition:color .15s}
 .bnav-btn.on{color:var(--green)}
 .bnav-icon{font-size:18px;display:block;margin-bottom:2px}
 @media(max-width:640px){.main{padding-bottom:72px}}
-
-/* ROADMAP */
 .rm-g{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
 @media(min-width:600px){.rm-g{grid-template-columns:repeat(3,1fr)}}
 .rm-c{background:var(--bg0);border:1px solid var(--border);padding:16px}
@@ -243,14 +206,10 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .rm-tgt{font-size:10px;color:var(--text3);margin-bottom:12px}
 .rm-step{display:flex;gap:7px;margin-bottom:5px;font-size:11px;color:var(--text2);align-items:flex-start}
 .rm-bul{width:3px;height:3px;border-radius:50%;margin-top:6px;flex-shrink:0}
-
-/* FOOTER */
 .footer{background:var(--bg1);border-top:1px solid var(--border);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-top:16px}
 .ft-l{font-size:9px;color:var(--text3);letter-spacing:1px}
 .ft-r{display:flex;gap:6px;flex-wrap:wrap}
 .ft-t{font-size:9px;color:var(--text3);padding:2px 7px;border:1px solid var(--border);letter-spacing:.5px}
-
-/* PRINT */
 @media print{
   .ticker-wrap,.header,.tabs,.bnav,.btn,.hdr-r{display:none!important}
   body{background:#fff!important;color:#000!important}
@@ -259,10 +218,10 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   .sec+.sec{page-break-before:always}
   *{-webkit-print-color-adjust:exact!important;color-adjust:exact!important}
 }
-
-/* SWIPE HINT */
 .swipe-h{text-align:center;font-size:9px;color:var(--text3);padding:4px;letter-spacing:1px}
 @media(min-width:768px){.swipe-h{display:none}}
+/* FX badge */
+.fx-badge{font-size:9px;color:var(--text3);padding:2px 6px;border:1px solid var(--border);font-family:var(--mono);margin-left:6px}
 </style>
 </head>
 <body data-theme="dark">
@@ -283,7 +242,6 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
         <div class="hdr-sub">ELITE TERMINAL v4.5 · DATOS REALES</div>
       </div>
     </div>
-    <div style="width:1px;height:28px;background:var(--border);display:none" id="hdr-sep2"></div>
     <div id="live-status" style="display:flex;align-items:center;gap:5px;font-size:9px;color:var(--text3);margin-left:10px">
       <div class="live-dot loading" id="ld2"></div>
       <span id="live-txt">CONECTANDO...</span>
@@ -291,6 +249,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   </div>
   <div class="hdr-r">
     <div class="clock" id="clock">--:--:--</div>
+    <span class="fx-badge" id="fx-badge">EUR/USD —</span>
     <button class="btn" onclick="toggleTheme()" id="theme-btn">◑</button>
     <button class="btn" onclick="window.print()">⎙ PDF</button>
     <button class="btn" onclick="refreshData()" id="refresh-btn">↻</button>
@@ -346,7 +305,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
       <table class="htable" style="min-width:300px">
         <thead><tr>
           <th style="width:40px">SCR</th><th>TICKER</th>
-          <th class="sm">EMPRESA</th><th class="r">PRECIO</th>
+          <th class="sm">EMPRESA</th><th class="r">PRECIO · POSICIÓN</th>
           <th class="r sm">HOY</th><th class="r sm">TOTAL</th>
           <th class="md" style="text-align:center">CONF</th>
           <th class="md" style="text-align:center">TAG</th>
@@ -442,7 +401,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 <!-- SIMULADOR -->
 <div class="sec" id="s-sim">
   <div style="background:var(--bg1);border:1px solid var(--border);padding:12px 16px;margin-bottom:12px;font-size:11px;color:var(--text2);line-height:1.7">
-    <strong style="color:var(--amber)">SIMULADOR DE CARTERA</strong> · Ajusta los pesos con los sliders y ve el resultado en tiempo real. El score medio y distribución sectorial se actualizan al instante.
+    <strong style="color:var(--amber)">SIMULADOR DE CARTERA</strong> · Ajusta los pesos con los sliders y ve el resultado en tiempo real.
   </div>
   <div class="sim-2g">
     <div>
@@ -508,17 +467,17 @@ const SHARES = {
 const H = [
   {t:"AMZN",n:"Amazon",s:"Tech",sc:11.50,cf:"ALTA",col:"#F59E0B",
    moat:["AWS switching costs 24-36m","Marketplace flywheel","Prime ecosystem","AI chips Trainium >$20B"],
-   thesis:"AWS +28% Q1 2026 — mayor crecimiento en 15 trimestres. AI run-rate >$15B. Advertising $70B+ TTM. Chips Trainium/Graviton triple-digit growth. Jassy: 'no invertimos $200B en un hunch'.",
+   thesis:"AWS +28% Q1 2026 — mayor crecimiento en 15 trimestres. AI run-rate >$15B. Advertising $70B+ TTM. Chips Trainium/Graviton triple-digit growth.",
    metrics:{ROIC:"18%","FCF Margin":"33%","Rev CAGR":"17%",NRR:"Proxy alto"},
    kpi:"NA retail margin <6% Q2 → revisión tesis retail"},
   {t:"GOOGL",n:"Alphabet",s:"Tech",sc:10.25,cf:"MEDIA",col:"#34D399",
    moat:["Search 90%+ cuota global","Cloud backlog $460B","YouTube monopolio video","Gemini Enterprise +40% QoQ"],
-   thesis:"Cloud +63% YoY blowout Q1 2026. Backlog $460B casi doblado QoQ. Search +19% con AI Overviews. Ajuste v4.3 activo. Primera vez Cloud = primary growth driver.",
+   thesis:"Cloud +63% YoY blowout Q1 2026. Backlog $460B casi doblado QoQ. Search +19% con AI Overviews.",
    metrics:{ROIC:"24%","FCF Norm.":"28%","Rev CAGR":"22%",NRR:"Proxy alto"},
    kpi:"DOJ antitrust Chrome/Android — apelación pendiente"},
   {t:"CSU.TO",n:"Constellation SW",s:"Tech",sc:9.80,cf:"ALTA",col:"#A78BFA",
    moat:["Switching costs VMS extremos","500+ adquisiciones seriales","Modelo Topicus replicable","Capital allocation élite"],
-   thesis:"Compoundor serial de VMS. -25% YTD = dilución natural. Q1 reporta 12 mayo. Adquisiciones a múltiplos bajos es modelo estructuralmente superior.",
+   thesis:"Compoundor serial de VMS. -25% YTD = dilución natural. Q1 reporta 12 mayo.",
    metrics:{ROIC:"~35%","FCF Margin":"25%","Rev CAGR":"~20%",NRR:"Proxy muy alto"},
    kpi:"Pace adquisiciones post-Leonard spin-off"},
   {t:"NVDA",n:"Nvidia",s:"Tech",sc:7.75,cf:"ALTA",col:"#86EFAC",act:"TRIM",
@@ -528,52 +487,52 @@ const H = [
    kpi:"⚠️ TRIM PLANIFICADO MAYO: 8,6% → 4%"},
   {t:"MA",n:"Mastercard",s:"Financial",sc:9.80,cf:"ALTA",col:"#FB923C",
    moat:["Network effect 3B cards","VAS +22% creciendo","Cross-border pricing","BVNK stablecoin $1,8B"],
-   thesis:"Q1 2026: revenue +16%, VAS +22%, cross-border +13%, op.margin 60,8%. Permanece cuando se vende V.",
+   thesis:"Q1 2026: revenue +16%, VAS +22%, cross-border +13%, op.margin 60,8%.",
    metrics:{ROIC:">100%","FCF Margin":"42%","Rev CAGR":"15%",NRR:"Proxy alto"},
    kpi:"UK interchange appeal | BVNK integración"},
   {t:"MSFT",n:"Microsoft",s:"Tech",sc:11.00,cf:"ALTA",col:"#60A5FA",
    moat:["Azure RPO $627B (+99% YoY)","Office 365 sticky","Copilot 20M seats","OpenAI deal mejorado"],
-   thesis:"Azure +39% cc. AI run-rate $37B +123% YoY. Copilot 20M asientos. Capex $3,4B bajo consenso. RPO $627B = 2,5 años asegurados.",
+   thesis:"Azure +39% cc. AI run-rate $37B +123% YoY. Copilot 20M asientos.",
    metrics:{ROIC:"~22%","FCF Margin":"28%","Rev CAGR":"18%",NRR:"Proxy muy alto"},
    kpi:"Azure Q4 FY26 sostenido >38% cc"},
-  {t:"FBTC",n:"Bitcoin ETF (FBTC)",s:"Alt",sc:null,cf:"—",col:"#F97316",
+  {t:"FBTC.MI",n:"Bitcoin ETF (FBTC)",s:"Alt",sc:null,cf:"—",col:"#F97316",
    moat:["Escasez 21M BTC hard cap","Adopción institucional ETF","Store of value secular","Baja correlación equities"],
-   thesis:"Exposición BTC sin custodia propia. Protocolo inamovible: suelo 3-4%, techo 10%. Salida SOLO por cambio regulatorio.",
+   thesis:"Exposición BTC sin custodia propia. Protocolo inamovible: suelo 3-4%, techo 10%.",
    metrics:{ROIC:"N/A","FCF Margin":"N/A","Rev CAGR":"N/A",NRR:"N/A"},
    kpi:"Protocolo: vender parcial si posición >10% cartera"},
   {t:"META",n:"Meta Platforms",s:"Tech",sc:9.25,cf:"MEDIA",col:"#2DD4BF",flag:"VIGILANCIA",
    moat:["3,56B DAP única escala","Ad targeting IA Andromeda","WhatsApp 2B+","Ray-Ban AI wearables"],
-   thesis:"Revenue +33% Q1 2026. Ad impressions +19%, precio +12%. OVERHANG: capex $125-145B sin backlog. DAP ligera caída QoQ. Vigilancia activa.",
+   thesis:"Revenue +33% Q1 2026. Ad impressions +19%, precio +12%. OVERHANG: capex $125-145B.",
    metrics:{ROIC:"~35%","FCF Margin":"~30%","Rev CAGR":"~20%",NRR:"Proxy alto"},
    kpi:"⚠️ DAP Q2 >3,65B | Backlog capex justificación"},
   {t:"WKL.AS",n:"Wolters Kluwer",s:"Tech",sc:10.25,cf:"ALTA",col:"#E879F9",act:"DECISION",
    moat:["Software legal/tax misión crítica","Switching costs normativo","Contratos multi-año","Pricing power normativo"],
-   thesis:"-60% desde ATH = anomalía valoración. Forward P/E 11,78× mínimo histórico. ROIC 18-19%, FCF €1,3B estable. DECISIÓN BINARIA 6-MAYO.",
+   thesis:"-60% desde ATH = anomalía valoración. Forward P/E 11,78× mínimo histórico. DECISIÓN BINARIA 6-MAYO.",
    metrics:{ROIC:"18-19%","FCF Margin":"~30%","Rev CAGR":"~8%",NRR:"Proxy alto"},
    kpi:"🚨 DECISIÓN BINARIA 6-MAYO: digital rev >65%"},
   {t:"LLY",n:"Eli Lilly",s:"Health",sc:12.60,cf:"ALTA",col:"#F472B6",recent:"✅ HOY",
    moat:["GLP-1 patents 2036+","Manufacturing scale inigualable","Foundayo oral pill único","Pipeline retatrutide 30% WL"],
-   thesis:"Q1 2026 BLOWOUT: +56% revenue. Mounjaro $8,66B +125%. Guidance $82-85B (+$2B). Tramo 2 EJECUTADO hoy a $907,847.",
+   thesis:"Q1 2026 BLOWOUT: +56% revenue. Mounjaro $8,66B +125%. Guidance $82-85B (+$2B). Tramo 2 EJECUTADO hoy.",
    metrics:{ROIC:"~45%","FCF Margin":"~25%","Rev CAGR":"+38%",NRR:"N/A pharma"},
    kpi:"Prescripciones Foundayo semanales — IQVIA"},
   {t:"SPGI",n:"S&P Global",s:"Financial",sc:11.85,cf:"ALTA",col:"#FCD34D",
    moat:["Ratings duopolio inmortal","S&P 500 brand licenciado globalmente","Indices licensing perpetuidad","Private credit AI infra"],
-   thesis:"Q1: Ratings +13%, Indices +17%, Private Credit +25%. Mobility spin-off mid-2026. FASE 2 DCA €200/mes ACTIVA.",
+   thesis:"Q1: Ratings +13%, Indices +17%, Private Credit +25%. FASE 2 DCA €200/mes ACTIVA.",
    metrics:{ROIC:"~25%","FCF Margin":"~35%","Rev CAGR":"~12%",NRR:"Proxy alto"},
    kpi:"🟢 FASE 2 DCA €200/mes activa"},
   {t:"FICO",n:"FICO Score",s:"Financial",sc:12.60,cf:"ALTA",col:"#4ADE80",
    moat:["Score hipotecas US sin alternativa","B2B pricing power absoluto","Platform NRR 136%","Sin competidor viable"],
-   thesis:"Q1 BLOWOUT: EPS $12,50 +16,8% beat. Revenue +39%. NRR 136%. Scores +60%. Guidance $2,45B / $40,45 EPS. Hard cap 5%.",
+   thesis:"Q1 BLOWOUT: EPS $12,50 +16,8% beat. Revenue +39%. NRR 136%. Hard cap 5%.",
    metrics:{ROIC:"~60%","FCF Margin":"~35%","Rev CAGR":"~28%","NRR Platform":"136%"},
    kpi:"VantageScore cuota >30% → señal A2 (vender 75%)"},
   {t:"V",n:"Visa",s:"Financial",sc:9.80,cf:"ALTA",col:"#93C5FD",act:"EXIT",
    moat:["Network effect global $14T+","Cross-border +11% cc Q2","Stablecoin AI payments","$20B buyback adicional"],
-   thesis:"Q2 best revenue since 2022: +17% YoY. $20B buyback. SE VENDE EN MAYO → SPGI. Score gap 2pp justifica rotación. Plan inamovible.",
+   thesis:"Q2 best revenue since 2022: +17% YoY. SE VENDE EN MAYO → SPGI. Plan inamovible.",
    metrics:{ROIC:"~45%","FCF Margin":"~50%","Rev CAGR":"~13%",NRR:"Proxy alto"},
    kpi:"⚠️ VENDER EN MAYO → SPGI (plan inamovible)"},
   {t:"ZTS",n:"Zoetis",s:"Health",sc:8.05,cf:"MEDIA",col:"#6EE7B7",
    moat:["Animal health #1 global","Librela/Solensia pain monopolio","Switching costs veterinarios","Beta 0,65 defensivo"],
-   thesis:"Humanización mascotas secular. Librela +40% dolor crónico canino. Lenivia catalizador próximo. Ancla defensiva salud. Q1 reporta 7-mayo.",
+   thesis:"Humanización mascotas secular. Librela +40% dolor crónico canino. Ancla defensiva salud.",
    metrics:{ROIC:"~18%","FCF Margin":"~23%","Rev CAGR":"~8%",NRR:"Proxy medio"},
    kpi:"Lenivia aprobación | Solensia FDA label update"},
 ];
@@ -638,10 +597,22 @@ let openRow = null;
 let simWeights = {};
 H.forEach(h => { simWeights[h.t] = 0; });
 
+// ← CAMBIO 1: tipos de cambio dinámicos con fallback
+let fxRates = { EURUSD: 1.13, CADUSD: 0.73 };
+
 // ═══════════════════════════════════════════════
 //  HELPERS
 // ═══════════════════════════════════════════════
 const fmt=(n,d=2)=>Number(n||0).toLocaleString("es-ES",{minimumFractionDigits:d,maximumFractionDigits:d});
+
+// ← CAMBIO 2: función de conversión usando tipos reales
+const toEUR=(p,c)=>{
+  if(!p) return 0;
+  if(c==='EUR') return p;
+  if(c==='CAD') return p * (fxRates.CADUSD / fxRates.EURUSD);
+  return p / fxRates.EURUSD;
+};
+
 const scoreColor=s=>s>=12?"#F59E0B":s>=11?"#4ADE80":s>=10?"#38BDF8":s>=9?"#A78BFA":"#6B7280";
 const stColor={cartera:"#F59E0B",watchlist:"#A78BFA",bloqueada:"#F87171","cond.":"#4B5563"};
 
@@ -682,15 +653,23 @@ async function fetchData(){
   setLiveStatus("loading","CARGANDO...");
   const rb=document.getElementById("refresh-btn");
   rb.textContent="↻ ...";rb.classList.add("active");
-  
+
   try {
     const resp = await fetch("/api/quotes");
     if(!resp.ok) throw new Error("HTTP "+resp.status);
     const json = await resp.json();
-    
+
     if(json.success && json.data){
       prevPrices = {...liveData};
       liveData = json.data;
+
+      // ← CAMBIO 3: capturar tipos de cambio reales de la API
+      if(json.fx && json.fx.EURUSD) {
+        fxRates = json.fx;
+        const badge = document.getElementById("fx-badge");
+        if(badge) badge.textContent = "EUR/USD " + fmt(fxRates.EURUSD, 4);
+      }
+
       updateDashboard();
       setLiveStatus("live","DATOS REALES · YAHOO FINANCE");
       const now=new Date();
@@ -703,7 +682,6 @@ async function fetchData(){
   } catch(err){
     console.error("Data fetch error:",err);
     setLiveStatus("offline","MERCADO CERRADO / ERROR");
-    // Si no hay datos reales, usar datos base del día
     updateDashboard(true);
   }
   rb.textContent="↻"; rb.classList.remove("active");
@@ -730,7 +708,6 @@ function setLiveStatus(state,txt){
 
 function scheduleNext(){
   clearInterval(refreshInterval);
-  // Refresh cada 60 segundos en horario de mercado, 5 min fuera
   const now=new Date();
   const h=now.getUTCHours(), m=now.getUTCMinutes();
   const isMarketHours=(h>=14&&h<21)||(h===13&&m>=30);
@@ -743,50 +720,55 @@ function scheduleNext(){
 function refreshData(){ clearInterval(refreshInterval); fetchData(); }
 
 // ═══════════════════════════════════════════════
-//  UPDATE DASHBOARD WITH REAL DATA
+//  UPDATE DASHBOARD
 // ═══════════════════════════════════════════════
 function updateDashboard(fallback=false){
-  let totalVal=0, totalCost=0, todayPnL=0;
-  
+  let totalVal=0, todayPnL=0;
+  let hasData=false;
+
   H.forEach(h=>{
     const quote=liveData[h.t];
     if(quote){
       const price=quote.price;
       const shares=SHARES[h.t];
       const pricePrev=prevPrices[h.t]?.price||price;
-      if(shares){
-        const posVal=price*shares;
-        const posValPrev=pricePrev*shares;
-        const posValEUR=posVal*0.934; // aproximado EUR/USD
-        totalVal+=posValEUR;
-        todayPnL+=(posVal-posValPrev)*0.934;
+      if(shares && price){
+        hasData=true;
+        const cur = quote.currency || 'USD';
+        // ← CAMBIO 4: usar toEUR con tipo real
+        const posValEUR = toEUR(price * shares, cur);
+        const posValPrevEUR = toEUR(pricePrev * shares, cur);
+        totalVal += posValEUR;
+        todayPnL += posValEUR - posValPrevEUR;
       }
-    } else {
-      // Usar valor base si no hay datos reales
-      if(h.t==="AMZN")totalVal+=3348.10;
-      else if(h.t==="GOOGL")totalVal+=3170.47;
-      // etc — valores de respaldo
     }
   });
-  
-  // Si el total calculado es razonable, úsalo; si no, usa el base
-  if(totalVal<5000||isNaN(totalVal)) totalVal=30951.27;
-  const todayPct=isNaN(todayPnL)||totalVal===30951.27?null:todayPnL/totalVal*100;
-  
-  // Update hero metrics
-  document.getElementById("m-total").textContent="€"+fmt(totalVal,0);
-  if(todayPct!==null){
-    const tc=todayPct>=0?"#4ADE80":"#FF4444";
-    document.getElementById("m-today").style.color=tc;
-    document.getElementById("m-today").textContent=(todayPct>=0?"+":"")+fmt(todayPct)+"%";
-    document.getElementById("m-today-sub").textContent=(todayPnL>=0?"+":"")+fmt(todayPnL,0)+"€ HOY";
-    document.getElementById("m-today-sub").style.color=tc;
+
+  if(!hasData || totalVal < 5000) {
+    totalVal = 30951.27;
+    document.getElementById("m-total").textContent = "€" + fmt(totalVal, 0);
+    document.getElementById("m-sub").textContent = "14 POSICIONES · €42,00 CASH";
+    document.getElementById("m-today").textContent = "—";
+    document.getElementById("m-today-sub").textContent = "Esperando datos...";
+    buildHoldings();
+    buildTicker();
+    return;
   }
-  document.getElementById("m-sub").textContent="14 POSICIONES · €42,00 CASH";
-  
-  // Rebuild holdings table with real prices
+
+  // Añadir cash
+  totalVal += 42;
+
+  document.getElementById("m-total").textContent = "€" + fmt(totalVal, 0);
+  document.getElementById("m-sub").textContent = "14 POSICIONES · €42,00 CASH";
+
+  const todayPct = todayPnL / (totalVal - todayPnL) * 100;
+  const tc = todayPnL >= 0 ? "#4ADE80" : "#FF4444";
+  document.getElementById("m-today").style.color = tc;
+  document.getElementById("m-today").textContent = (todayPnL >= 0 ? "+" : "") + fmt(todayPct) + "%";
+  document.getElementById("m-today-sub").textContent = (todayPnL >= 0 ? "+" : "") + fmt(todayPnL, 0) + "€ HOY";
+  document.getElementById("m-today-sub").style.color = tc;
+
   buildHoldings();
-  // Update ticker
   buildTicker();
 }
 
@@ -819,20 +801,28 @@ function buildHoldings(){
     const pct=q?q.changePct:null;
     const prevPrice=prevPrices[h.t]?.price||price;
     const flashClass=price&&prevPrice&&price!==prevPrice?(price>prevPrice?"price-up":"price-dn"):"";
-    
-    const priceDisp=price?fmt(price)+"<span style='font-size:10px;color:var(--text3)'> "+q.currency+"</span>":"—";
+    const cur = q?.currency || 'USD';
+
+    const priceDisp=price
+      ?fmt(price)+"<span style='font-size:10px;color:var(--text3)'> "+cur+"</span>"
+      :"—";
+
+    // ← CAMBIO 5: calcular y mostrar valor de la posición en €
+    const shares = SHARES[h.t];
+    const posEUR = (price && shares) ? toEUR(price * shares, cur) : null;
+    const posDisp = posEUR
+      ? `<div class="hvs">€${fmt(posEUR, 0)}</div>`
+      : '';
+
     const pctDisp=pct!==null?`<span class="${pct>=0?"up":"dn"}">${pct>=0?"+":""}${fmt(pct)}%</span>`:"—";
-    
-    // Total desde entrada (approx)
+
     const costBase=COST_BASIS[h.t]||0;
-    const shares=SHARES[h.t];
     let totalPct=null;
-    if(price&&shares&&costBase){
-      const curVal=price*shares*0.934;
-      totalPct=(curVal-costBase)/costBase*100;
+    if(posEUR&&costBase){
+      totalPct=(posEUR-costBase)/costBase*100;
     }
     const totalDisp=totalPct!==null?`<span class="${totalPct>=0?"up":"dn"}">${totalPct>=0?"+":""}${fmt(totalPct)}%</span>`:"—";
-    
+
     let badge="";
     if(h.act==="TRIM")badge=`<span class="badge b-trim">TRIM</span>`;
     else if(h.act==="EXIT")badge=`<span class="badge b-exit">EXIT</span>`;
@@ -840,19 +830,19 @@ function buildHoldings(){
     else if(h.flag==="VIGILANCIA")badge=`<span class="badge b-watch">👁</span>`;
     else if(h.recent)badge=`<span class="badge b-new">${h.recent}</span>`;
     const cfCls=h.cf==="ALTA"?"b-alta":"b-media";
-    
+
     const mHTML=Object.entries(h.metrics).map(([k,v])=>{
       const liveExtra=k==="Rev CAGR"&&pct?`<div class="mm-live">Hoy: ${pct>=0?"+":""}${fmt(pct)}%</div>`:"";
       return`<div class="mm-box"><div class="mm-l">${k}</div><div class="mm-v">${v}</div>${liveExtra}</div>`;
     }).join("");
     const moatHTML=h.moat.map(m=>`<span class="moat-i" style="border-color:${h.col}40;color:${h.col}">${m}</span>`).join("");
-    
+
     return`<tr class="hr" id="hr-${i}"><td>
       <div class="hr-main ${flashClass}" onclick="toggleH(${i})">
         <div style="display:flex;justify-content:center">${orbHTML(h.sc)}</div>
         <div><div class="ht" style="color:${h.col}">${h.t}</div><div class="hs">${h.s}</div></div>
         <div class="sm" style="font-size:11px;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${h.n}</div>
-        <div class="hv"><div class="hvm">${priceDisp}</div></div>
+        <div class="hv"><div class="hvm">${priceDisp}</div>${posDisp}</div>
         <div class="pct sm">${pctDisp}</div>
         <div class="pct sm">${totalDisp}</div>
         <div class="md" style="text-align:center"><span class="badge ${cfCls}">${h.cf}</span></div>
@@ -917,7 +907,6 @@ function buildScore(){
   const lEl=document.getElementById("score-list");
   const sorted=[...WL].sort((a,b)=>b.s-a.s);
   const maxH=160;
-  
   bEl.innerHTML=sorted.slice(0,16).map(w=>{
     const c=stColor[w.st]||"#4B5563";
     const h2=Math.max(((w.s-7)/6)*maxH,4);
@@ -928,7 +917,6 @@ function buildScore(){
       <div class="bc-l">${w.t}</div>
     </div>`;
   }).join("");
-  
   lEl.innerHTML=sorted.map((w,i)=>{
     const c=stColor[w.st]||"#4B5563";
     const sc=scoreColor(w.s);
@@ -957,13 +945,11 @@ function buildPlan(){
       <div class="ac-det">${a.det}</div>
     </div>`;
   }).join("");
-  
   document.getElementById("plan-fases").innerHTML=FASES.map(f=>`
     <div class="fi" style="border-left-color:${f.c}">
       <div class="fi-h"><span class="fi-n" style="color:${f.c}">${f.n}</span><span class="fi-p">${f.p}</span></div>
       <div class="fi-tags">${f.items.map(i=>`<span class="fi-tag" style="background:${f.c}10;border-color:${f.c}25">${i}</span>`).join("")}</div>
     </div>`).join("");
-  
   document.getElementById("kpi-g").innerHTML=KPIS.map(k=>`
     <div class="kpi-c" style="border-color:${k.c}30;background:rgba(${hexRgb(k.c)},0.04)">
       <div><div class="kpi-t">${k.t}</div><div class="kpi-k">${k.k}</div></div>
@@ -1053,7 +1039,6 @@ function showTab(id,btn,idx){
   },150);
 }
 
-// Touch swipe
 let txs=0,tys=0;
 document.addEventListener("touchstart",e=>{txs=e.touches[0].clientX;tys=e.touches[0].clientY},{passive:true});
 document.addEventListener("touchend",e=>{
@@ -1084,18 +1069,15 @@ function toggleTheme(){
 const savedTheme=localStorage.getItem("ri-theme");
 if(savedTheme){document.body.dataset.theme=savedTheme;document.getElementById("theme-btn").textContent=savedTheme==="light"?"◐":"◑";}
 
-// Build static sections
-buildHoldings(); // primero con datos vacíos
+buildHoldings();
 buildTicker();
 buildSectors();
 buildScore();
 buildPlan();
 buildSim();
 
-// Fetch real data
 fetchData();
 
-// Initial animation trigger
 setTimeout(()=>{
   document.querySelectorAll(".sl-fill[data-w]").forEach(el=>{el.style.width=el.dataset.w+"%"});
 },400);

@@ -18,10 +18,11 @@ export default async function handler(req, res) {
   };
 
   const fetchSymbol = async (symbol) => {
+    // Use 5d range so we get sparkline data + 52W metadata
     const urls = [
-      `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1m&range=1d`,
-      `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1m&range=1d`,
       `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=5d`,
+      `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=5d`,
+      `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1m&range=1d`,
     ];
     for (const url of urls) {
       try {
@@ -29,16 +30,23 @@ export default async function handler(req, res) {
         if (!r.ok) continue;
         const d = await r.json();
         const meta = d?.chart?.result?.[0]?.meta;
+        const quotes = d?.chart?.result?.[0]?.indicators?.quote?.[0];
         if (!meta || !meta.regularMarketPrice) continue;
         const price = meta.regularMarketPrice;
         const prev = meta.previousClose || price;
+        // Extract 5-day closes for sparkline
+        const closes = (quotes?.close || [])
+          .filter(c => c !== null && c !== undefined && !isNaN(c));
         return {
           symbol,
           price,
           change: price - prev,
           changePct: ((price - prev) / prev) * 100,
           currency: meta.currency || "USD",
-          marketState: meta.marketState || "REGULAR"
+          marketState: meta.marketState || "REGULAR",
+          high52w: meta.fiftyTwoWeekHigh || null,
+          low52w: meta.fiftyTwoWeekLow || null,
+          sparkline: closes.slice(-5)
         };
       } catch { continue; }
     }
